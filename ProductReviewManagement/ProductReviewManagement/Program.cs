@@ -40,6 +40,9 @@ namespace ProductReviewManagement
             Console.WriteLine("Top three records are as following : " + "\n");
             ReviewManagement management = new ReviewManagement();
             management.TopThreeRecords(productReviews);
+
+            Console.WriteLine("Products whose rating is greater than 3 and product id is 1 or 4 or 9 are as following : " + "\n");
+            management.SpecifiedRecords(productReviews);
         }
     }
 }

@@ -25,5 +25,25 @@ namespace ProductReviewManagement
                 Console.WriteLine("Is Like    : " + item.IsLike + "\n");
             }
         }
+
+        /// <summary>
+        /// Method to get records whose rating is greater than 3 and product ID is 1 or 4 or 9
+        /// </summary>
+        /// <param name="productReviews"></param>
+        public void SpecifiedRecords(List<ProductReview> productReviews)
+        {
+            var data = from reviews in productReviews
+                       where (reviews.ProductId == 1 || reviews.ProductId == 4 || reviews.ProductId == 9) && reviews.Rating > 3
+                       select reviews;
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("Product ID : " + item.ProductId);
+                Console.WriteLine("User ID    : " + item.UserId);
+                Console.WriteLine("Rating     : " + item.Rating);
+                Console.WriteLine("Review     : " + item.Review);
+                Console.WriteLine("Is Like    : " + item.IsLike + "\n");
+            }
+        }
     }
 }
