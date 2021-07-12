@@ -37,15 +37,9 @@ namespace ProductReviewManagement
                 new ProductReview() {ProductId = 24, UserId = 5, Rating = 4.3, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 25, UserId = 6, Rating = 1, Review = "Bad", IsLike = false},
             };
-
-            foreach (var reviewList in productReviews)
-            {
-                Console.WriteLine("Product ID : " + reviewList.ProductId);
-                Console.WriteLine("User ID    : " + reviewList.UserId);
-                Console.WriteLine("Rating     : " + reviewList.Rating);
-                Console.WriteLine("Review     : " + reviewList.Review);
-                Console.WriteLine("Is Like    : " + reviewList.IsLike + "\n");
-            }
+            Console.WriteLine("Top three records are as following : " + "\n");
+            ReviewManagement management = new ReviewManagement();
+            management.TopThreeRecords(productReviews);
         }
     }
 }

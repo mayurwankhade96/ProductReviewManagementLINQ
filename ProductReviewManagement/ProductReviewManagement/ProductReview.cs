@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ProductReviewManagement
+﻿namespace ProductReviewManagement
 {
-    class ProductReview
+    public class ProductReview
     {
         public int ProductId { get; set; }
         public int UserId { get; set; }
