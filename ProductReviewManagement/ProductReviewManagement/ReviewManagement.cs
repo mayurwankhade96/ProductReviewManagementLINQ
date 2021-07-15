@@ -45,5 +45,19 @@ namespace ProductReviewManagement
                 Console.WriteLine("Is Like    : " + item.IsLike + "\n");
             }
         }
+
+        /// <summary>
+        /// Method to get count of review for each product id
+        /// </summary>
+        /// <param name="productReviews"></param>
+        public void CountOfRecords(List<ProductReview> productReviews)
+        {
+            var data = productReviews.GroupBy(products => products.ProductId).Select(products => new { productId = products.Key, count = products.Count() });
+
+            foreach (var item in data)
+            {
+                Console.WriteLine(item.productId + "---" + item.count);
+            }
+        }
     }
 }
