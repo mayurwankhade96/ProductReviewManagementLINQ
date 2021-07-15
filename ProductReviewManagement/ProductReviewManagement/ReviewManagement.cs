@@ -75,5 +75,25 @@ namespace ProductReviewManagement
             }
             Console.WriteLine();
         }
+
+        /// <summary>
+        /// Method to get all records other than top five
+        /// </summary>
+        /// <param name="ProductReviews"></param>
+        public void SkipTopFiveRecord(List<ProductReview> ProductReviews)
+        {
+            var data = (from reviews in ProductReviews
+                        orderby reviews.Rating descending
+                        select reviews).Skip(5);
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("Product ID : " + item.ProductId);
+                Console.WriteLine("User ID    : " + item.UserId);
+                Console.WriteLine("Rating     : " + item.Rating);
+                Console.WriteLine("Review     : " + item.Review);
+                Console.WriteLine("Is Like    : " + item.IsLike + "\n");
+            }
+        }
     }
 }

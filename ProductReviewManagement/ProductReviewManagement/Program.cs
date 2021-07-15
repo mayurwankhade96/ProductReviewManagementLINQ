@@ -50,6 +50,9 @@ namespace ProductReviewManagement
             Console.WriteLine("Product id and reviews are as following : " + "\n");
             Console.WriteLine("ID  |   Review");
             management.RetrieveIdAndReview(productReviews);
+
+            Console.WriteLine("Other than top five records are as follows : " + "\n");
+            management.SkipTopFiveRecord(productReviews);
         }
     }
 }
