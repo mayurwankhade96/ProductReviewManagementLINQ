@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace ProductReviewManagement
@@ -94,6 +95,33 @@ namespace ProductReviewManagement
                 Console.WriteLine("Review     : " + item.Review);
                 Console.WriteLine("Is Like    : " + item.IsLike + "\n");
             }
+        }
+
+        public readonly DataTable dataTable = new DataTable();
+
+        /// <summary>
+        /// Method to create data table
+        /// </summary>
+        /// <param name="productReview"></param>
+        /// <returns></returns>
+        public DataTable CreateTable(List<ProductReview> productReview)
+        {
+            var columnOne = new DataColumn("ProductId", typeof(int));
+            dataTable.Columns.Add(columnOne);
+
+            var columnTwo = new DataColumn("UserId", typeof(int));
+            dataTable.Columns.Add(columnTwo);
+
+            var columnThree = new DataColumn("Rating", typeof(double));
+            dataTable.Columns.Add(columnThree);
+
+            var columnFour = new DataColumn("Review");
+            dataTable.Columns.Add(columnFour);
+
+            var columnFive = new DataColumn("isLike", typeof(bool));
+            dataTable.Columns.Add(columnFive);
+
+            return dataTable;
         }
     }
 }

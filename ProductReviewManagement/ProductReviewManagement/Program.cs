@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ProductReviewManagement
 {
@@ -57,6 +58,13 @@ namespace ProductReviewManagement
             Console.WriteLine("Product id and reviews are as following : " + "\n");
             Console.WriteLine("ID  |   Review");
             management.RetrieveIdAndReview(productReviews);
+
+            DataTable data = management.CreateTable(productReviews);
+
+            foreach (var table in productReviews)
+            {
+                data.Rows.Add(table.ProductId, table.UserId, table.Rating, table.Review, table.IsLike);
+            }
         }
     }
 }
