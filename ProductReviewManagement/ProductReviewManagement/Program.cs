@@ -65,6 +65,9 @@ namespace ProductReviewManagement
             {
                 data.Rows.Add(table.ProductId, table.UserId, table.Rating, table.Review, table.IsLike);
             }
+
+            Console.WriteLine("Records with isLike true Values are following : " + "\n");
+            management.RetrieveIsLikeTrueFromDataTable(data);
         }
     }
 }

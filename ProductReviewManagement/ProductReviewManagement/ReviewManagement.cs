@@ -123,5 +123,22 @@ namespace ProductReviewManagement
 
             return dataTable;
         }
+
+        public void RetrieveIsLikeTrueFromDataTable(DataTable table)
+        {
+            var data = from reviews in table.AsEnumerable()
+                       where (reviews.Field<bool>("isLike") == true)
+                       select reviews;
+
+            foreach (var item in data)
+            {
+                Console.WriteLine("Product ID : " + item.Field<int>("ProductId"));
+                Console.WriteLine("User ID    : " + item.Field<int>("UserId"));
+                Console.WriteLine("Rating     : " + item.Field<double>("Rating"));
+                Console.WriteLine("Review     : " + item.Field<string>("Review"));
+                Console.WriteLine("Is Like    : " + item.Field<bool>("IsLike"));
+                Console.WriteLine();
+            }
+        }
     }
 }
