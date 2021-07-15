@@ -46,6 +46,10 @@ namespace ProductReviewManagement
 
             Console.WriteLine("Count of review present for each product id : " + "\n");
             management.CountOfRecords(productReviews);
+
+            Console.WriteLine("Product id and reviews are as following : " + "\n");
+            Console.WriteLine("ID  |   Review");
+            management.RetrieveIdAndReview(productReviews);
         }
     }
 }
