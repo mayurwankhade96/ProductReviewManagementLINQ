@@ -68,6 +68,10 @@ namespace ProductReviewManagement
 
             Console.WriteLine("Records with isLike true Values are following : " + "\n");
             management.RetrieveIsLikeTrueFromDataTable(data);
+
+            Console.WriteLine("Product id and average ratings are as following : " + "\n");
+            Console.WriteLine("ID  |  Average Ratings");
+            management.AverageRatings(productReviews);
         }
     }
 }

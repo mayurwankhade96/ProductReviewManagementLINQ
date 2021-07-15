@@ -66,9 +66,9 @@ namespace ProductReviewManagement
         /// Method to retrieve product id and review
         /// </summary>
         /// <param name="ProductReviews"></param>
-        public void RetrieveIdAndReview(List<ProductReview> ProductReviews)
+        public void RetrieveIdAndReview(List<ProductReview> productReviews)
         {
-            var data = ProductReviews.Select(x => new { ProductId = x.ProductId, Review = x.Review });
+            var data = productReviews.Select(x => new { ProductId = x.ProductId, Review = x.Review });
 
             foreach (var list in data)
             {
@@ -81,9 +81,9 @@ namespace ProductReviewManagement
         /// Method to get all records other than top five
         /// </summary>
         /// <param name="ProductReviews"></param>
-        public void SkipTopFiveRecord(List<ProductReview> ProductReviews)
+        public void SkipTopFiveRecord(List<ProductReview> productReviews)
         {
-            var data = (from reviews in ProductReviews
+            var data = (from reviews in productReviews
                         orderby reviews.Rating descending
                         select reviews).Skip(5);
 
@@ -143,6 +143,21 @@ namespace ProductReviewManagement
                 Console.WriteLine("Is Like    : " + item.Field<bool>("IsLike"));
                 Console.WriteLine();
             }
+        }
+
+        /// <summary>
+        /// Method to get average ratings
+        /// </summary>
+        /// <param name="productReviews"></param>
+        public void AverageRatings(List<ProductReview> productReviews)
+        {
+            var data = productReviews.GroupBy(x => x.ProductId).Select(x => new { id = x.Key, avg = x.Average(y => y.Rating) });
+
+            foreach (var item in data)
+            {
+                Console.WriteLine(item.id + "  --  " + item.avg);
+            }
+            Console.WriteLine();
         }
     }
 }
