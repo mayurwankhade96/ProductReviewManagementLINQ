@@ -124,6 +124,10 @@ namespace ProductReviewManagement
             return dataTable;
         }
 
+        /// <summary>
+        /// Method to get isLike true from data table
+        /// </summary>
+        /// <param name="table"></param>
         public void RetrieveIsLikeTrueFromDataTable(DataTable table)
         {
             var data = from reviews in table.AsEnumerable()
